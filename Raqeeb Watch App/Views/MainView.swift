@@ -11,21 +11,13 @@ struct mainView: View {
     var body: some View {
         NavigationView {
             
-        
         Color("Background")
            .ignoresSafeArea()
            .overlay {
                VStack {
-                   HStack() {
-                       Image(systemName: "heart.fill")
-                           .foregroundStyle(.purple)
-                           .opacity(0.3)
-                           
-                       Text("-- BPM")
-                           .font(.system(size: 14))
-                   }.frame(maxWidth: .infinity,alignment: .leading)
-                       .padding(.horizontal,15)
-
+                   
+                   heartRateView()
+                   
                    Button(action: startMonitiring , label: {
                        ZStack{
                            Image("bubble")
