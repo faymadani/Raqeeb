@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct mainView: View {
+    @State private var startAlert: Bool = false
     var body: some View {
         NavigationView {
             
@@ -17,35 +18,34 @@ struct mainView: View {
                VStack {
                    
                    heartRateView()
-                   
-                   Button(action: startMonitiring , label: {
+                   Spacer()
+                   Button(action:
+                            {
+                       startAlert = true}
+                            
+                           , label: {
                        ZStack{
                            Image("bubble")
                                .resizable()
                                .scaledToFit()
                                .frame(height: 140)
-                              
-                               
+    
                            Text("تنبيه")
                                .font(.system(size: 22, weight: .bold))
-                           
                        }
-                       
                    })
                    .buttonStyle(PlainButtonStyle())
                    .buttonStyle(BorderedButtonStyle(tint: .blue))
-                                  
-              
+                   Spacer()
+                   //Text("")
                    
-                   Button(action: startMonitiring , label: {
-                       Text("بدء المراقبة")
-                           .font(.system(size: 20, weight: .regular))
-                           .foregroundColor(.background)
-                           
-                   }).background(Color.white)
-                       .cornerRadius(50)
-               }
+               }.padding()
+                .ignoresSafeArea()
+                   
            }
+           
+        }.navigationDestination(isPresented: $startAlert) {
+            StartAlarm()
         }
     }
     

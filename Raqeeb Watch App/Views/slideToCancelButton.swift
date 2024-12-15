@@ -81,7 +81,6 @@ struct slideToCancelButton: View {
                 .opacity(Double(1 - ((self.dragOffset.width*2)/self.trackSize.width)))
             
             //thumb
-            
             ZStack {
                 Capsule()
                     .fill(Color.white)
@@ -91,10 +90,8 @@ struct slideToCancelButton: View {
                     .foregroundStyle(Color.background)
                 
             }.offset(x: getDragOffset(), y: 0)
-          
             //to make it very smooooth
                 .animation(Animation.spring(response: 0.3, dampingFraction: 0.8))
-            
                 .gesture(
                     DragGesture()
                         .onChanged({value in self.handleDragChanged(value)})

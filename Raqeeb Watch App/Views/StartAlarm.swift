@@ -15,34 +15,61 @@ struct StartAlarm: View {
     @State private var showText = true
     @State private var navigateToNextPage = false
     
+    @State private var alarmIsOn: Bool = false
+    
+    
+    //timer
+    @State var countdownTimer = 30
+    @State var timerIsRunning = true
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
     var body: some View {
         Color("Background")
             .ignoresSafeArea()
             .overlay {
-                VStack {
-                    heartRateView()
-                    if showCancel {
-                        slideToCancelButton()
-                            .OnSwipeSuccess {
-                                self.didCancel = true
-                                self.showCancel = false
+                NavigationView(){
+                    VStack {
+                        heartRateView()
+                        Spacer()
+                        
+                        Text("\(countdownTimer)")
+                            .font(.system(size: 40).bold())
+                            .onReceive(timer) { _ in
+                                if countdownTimer > 0 && timerIsRunning{
+                                    countdownTimer -= 1
+                                    if countdownTimer == 0 {
+                                        activateAlarm()
+                                        alarmIsOn = true
+                                    }
+                                }else{
+                                    timerIsRunning = false
+                                }
                             }
-                            .transition(AnyTransition.scale.animation(Animation.spring(response: 0.3,dampingFraction: 0.5)))
-                    }
-                    
-                    if didCancel {
-                        if showText {
-                            VStack{
-                                ZStack{
-                                    Circle()
-                                        .stroke(Color.white, lineWidth: 3)
-                                        .frame(width: 50, height: 50)
-                                    Image(systemName: "checkmark")
-                                        .foregroundColor(Color.white)
-                                        .font(.largeTitle)
-                                }.padding(.bottom, 16)
-                                Text("تم إلغاء التنبية")
-                            }
+                        Spacer()
+                        if showCancel {
+                            slideToCancelButton()
+                                .OnSwipeSuccess {
+                                    self.didCancel = true
+                                    self.showCancel = false
+                                    timerIsRunning = false
+                                    print(countdownTimer )
+                                }
+                                .transition(AnyTransition.scale.animation(Animation.spring(response: 0.3,dampingFraction: 0.5)))
+                        }
+                        
+                        if didCancel {
+                            if showText {
+                                VStack{
+                                    ZStack{
+                                        Circle()
+                                            .stroke(Color.white, lineWidth: 3)
+                                            .frame(width: 50, height: 50)
+                                        Image(systemName: "checkmark")
+                                            .foregroundColor(Color.white)
+                                            .font(.largeTitle)
+                                    }.padding(.bottom, 16)
+                                    Text("تم إلغاء التنبية")
+                                }
                                 .transition(AnyTransition.scale.animation(Animation.spring(response: 0.5,dampingFraction: 0.5)))
                                 .onAppear() {
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -50,30 +77,42 @@ struct StartAlarm: View {
                                         navigateToNextPage = true
                                     }
                                 }
-                        }else {
-                            mainView() .transition(AnyTransition.scale.animation(Animation.spring(response: 0.3,dampingFraction: 0.8)))
+                            }else {
+                                mainView() .transition(AnyTransition.scale.animation(Animation.spring(response: 0.3,dampingFraction: 0.8)))
+                            }
+                            //FOR TESTING
+                            //                           .onAppear() {
+                            //                               DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            //                                   self.didCancel = false
+                            //                                   self.showCancel = true
+                            //
+                            //                               }
+                            //                           }
+                            
                         }
-                        //FOR TESTING
-                        //                           .onAppear() {
-                        //                               DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                        //                                   self.didCancel = false
-                        //                                   self.showCancel = true
-                        //
-                        //                               }
-                        //                           }
-                        
+                    }
+                    .padding()
+                    .onAppear {
+                        self.showCancel = true
+                    }
+                }.navigationDestination(isPresented: $navigateToNextPage) {
+                    mainView()
+                }
+                .overlay(content: {
+                    if alarmIsOn {
+                        AlarmIsOn()
                     }
                 }
-                .padding()
-                .onAppear {
-                    self.showCancel = true
-                    
-                }
-//                .navigationDestination(isPresented: $navigateToNextPage) {
-//                    mainView()
-//                }
+                )
             }
     }
+    func activateAlarm() {
+        // if countdownTimer == 0 activate the Alarm
+        
+        // TESTING
+        print("activate Alarm")
+    }
+    
 }
 
 #Preview {
