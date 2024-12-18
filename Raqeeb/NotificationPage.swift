@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct NotificationPage: View {
     var body: some View {
@@ -14,13 +15,13 @@ struct NotificationPage: View {
                 .ignoresSafeArea()
 
             VStack {
-                Text("للحصول على إشعار!")
+                Text("To receive a notification!")
                     .font(.system(size: 25))
                     .fontWeight(.bold)
                     .foregroundColor(.baigee)
                     .padding(.top, 400)
 
-                Text("يرجى تفعيل الإشعارات الفورية للتنبيهات الطارئه")
+                Text("Please enable push notifications for emergency alerts.")
                     .foregroundColor(.baigee)
                     .font(.system(size: 20))
                     .multilineTextAlignment(.center)
@@ -29,11 +30,12 @@ struct NotificationPage: View {
                 Spacer()
 
                 Button(action: {
-                    print("تم الضغط على الزر")
+                    // استدعاء طلب إذن الإشعارات عند الضغط على الزر
+                    requestNotificationPermission()
                 }) {
                     ZStack {
-                        Image("strt")
-                        Text("تفعيل")
+                        Image("strt") // صورة "strt"
+                        Text("Activate")
                             .foregroundColor(.bg)
                             .font(.system(size: 20))
                             .fontWeight(.bold)
@@ -44,6 +46,20 @@ struct NotificationPage: View {
                 .padding(.top, 160)
 
                 Spacer()
+            }
+        }
+    }
+
+    // دالة لطلب الإذن بإشعارات التطبيق
+    func requestNotificationPermission() {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if let error = error {
+                print("خطأ في طلب الإذن بالإشعارات: \(error.localizedDescription)")
+            } else if granted {
+                print("تم منح الإذن بالإشعارات.")
+            } else {
+                print("تم رفض الإذن بالإشعارات.")
             }
         }
     }

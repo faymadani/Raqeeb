@@ -17,7 +17,7 @@ struct ChoicePage: View {
                     .ignoresSafeArea()
 
                 VStack {
-                    Text("لتعيين التطبيق أخبرنا بدورك")
+                    Text("to set the app, tell us your role")
                         .font(.system(size: 25))
                         .fontWeight(.bold)
                         .foregroundColor(.baigee)
@@ -26,29 +26,27 @@ struct ChoicePage: View {
                     Spacer()
 
                     // Button to page3
-                    NavigationLink(destination: page3()) {
+//                    NavigationLink(destination: page3()) {
                         ZStack {
                             Image("strt")
                             HStack {
-                                Image("arrow")
-                                    .padding(.trailing, 14)
-                                Text("أنا اعاني من اضطرابات الصرع")
+                                
+                                Text("I suffer from epilepsy disorders.")
                                     .foregroundColor(.bg)
                                     .font(.system(size: 18))
                                     .fontWeight(.bold)
                             }
                         }
-                    }
+//                    }
                     .padding(.bottom, 10)
 
                     // Button to page3 when "أنا جهة اتصال طوارئ لشخص ما" is clicked
-                    NavigationLink(destination: page3()) {
+                    NavigationLink(destination: EmergencyPage()) {
                         ZStack {
                             Image("strt")
                             HStack {
-                                Image("arrow")
-                                    .padding(.trailing, 1)
-                                Text("أنا جهة اتصال طوارئ لشخص ما")
+                                
+                                Text("I am an emergency contact.")
                                     .foregroundColor(.bg)
                                     .font(.system(size: 18))
                                     .fontWeight(.bold)

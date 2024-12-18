@@ -19,13 +19,13 @@ struct WelcomePage2: View {
                         .frame(width: 300, height: 300)
                         .offset(y: 50)
 
-                    Text("مرحبًا بك في رقيب!")
+                    Text("Welcome to Raqeep")
                         .font(.system(size: 25))
                         .fontWeight(.bold)
                         .foregroundColor(.baigee)
                         .padding(.top, 90)
 
-                    Text("مرحبًا بك في رقيب إذا كنت أنت أو أحد أفراد عائلتك يعاني من الصرع أو اضطراب النوبات الأخرى فإن هذا التطبيق سيساعدك في متابعة حالتك بشكل أفضل.")
+                    Text("Welcome to Raqeeb. If you or a family member are experiencing epilepsy or other seizure disorders, this app will help you monitor your condition more effectively.")
                         .foregroundColor(.baigee)
                         .font(.system(size: 20))
                         .multilineTextAlignment(.center)
@@ -37,7 +37,7 @@ struct WelcomePage2: View {
                     NavigationLink(destination: ChoicePage()) {
                         ZStack {
                             Image("strt")
-                            Text("ابدأ")
+                            Text("Start")
                                 .foregroundColor(.bg)
                                 .font(.system(size: 20))
                                 .fontWeight(.bold)

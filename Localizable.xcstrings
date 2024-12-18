@@ -1,0 +1,213 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Activate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "تفعيل"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activate"
+          }
+        }
+      }
+    },
+    "As an emergency contact, you will receive alert notifications when the person you are caring for experiences a seizure. The alerts may be direct notifications." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "بصفتك جهة اتصال للطوارئ، ستتلقى تنبيهات إنذار  عندما يتعرض الشخص الذي تعتني به لنوبه صرع.\nقد تكون التنبيهات عبارة عن إشعارا مباشر"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "As an emergency contact, you will receive alert notifications when the person you are caring for experiences a seizure. The alerts may be direct notifications."
+          }
+        }
+      }
+    },
+    "continue" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "متابعة"
+          }
+        }
+      }
+    },
+    "continue " : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "متابعة"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "continue "
+          }
+        }
+      }
+    },
+    "I am an emergency contact." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "أنا جهة اتصال طوارئ \nلشخص"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I am an emergency contact."
+          }
+        }
+      }
+    },
+    "I suffer from epilepsy disorders." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "أنا اعاني من اضطرابات الصرع"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I suffer from epilepsy disorders."
+          }
+        }
+      }
+    },
+    "Please enable push notifications for emergency alerts." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "يرجى تفعيل الإشعارات الفورية للتنبيهات \nالطارئة"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enable push notifications for emergency alerts."
+          }
+        }
+      }
+    },
+    "Start" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "ابدأ"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start"
+          }
+        }
+      }
+    },
+    "To receive a notification!" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "للحصول على إشعار !"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To receive a notification!"
+          }
+        }
+      }
+    },
+    "to set the app, tell us your role" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "لتعيين التطبيق أخبرنا بدورك"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "to set the app, tell us your role"
+          }
+        }
+      }
+    },
+    "Welcome to Raqeeb. If you or a family member are experiencing epilepsy or other seizure disorders, this app will help you monitor your condition more effectively." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مرحبا بك في رقيب إذا كنت أنت أو أحد أفراد عائلتك يعاني من الصرع أو أضطراب النوبات الآخرى فإن هذا التطبيق سيساعدك في متابعة حالتك بشكل أفضل. "
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welcome to Raqeeb. If you or a family member are experiencing epilepsy or other seizure disorders, this app will help you monitor your condition more effectively."
+          }
+        }
+      }
+    },
+    "welcome to raqeep" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "مرحبًا بك في رقيب!"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "welcome to raqeep"
+          }
+        }
+      }
+    },
+    "Welcome to Raqeep" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مرحبًا بك في رقيب!"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

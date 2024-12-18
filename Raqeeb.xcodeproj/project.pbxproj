@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11B949882D12CCDB00187D83 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 11B949872D12CCDB00187D83 /* Localizable.xcstrings */; };
 		8C1AD1C92D0945F3000CBC3E /* Raqeeb Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 8C1AD1BC2D0945F3000CBC3E /* Raqeeb Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8C94956D2D0997EA0031D2CA /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C94956C2D0997EA0031D2CA /* WatchConnectivity.framework */; };
 		8C94956F2D0997FE0031D2CA /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C94956E2D0997FE0031D2CA /* WatchConnectivity.framework */; };
@@ -37,6 +38,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		11B949872D12CCDB00187D83 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		8C1AD1A22D094569000CBC3E /* Raqeeb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raqeeb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C1AD1BC2D0945F3000CBC3E /* Raqeeb Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Raqeeb Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C94956C2D0997EA0031D2CA /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS11.1.sdk/System/Library/Frameworks/WatchConnectivity.framework; sourceTree = DEVELOPER_DIR; };
@@ -92,6 +94,7 @@
 		8C1AD1992D094569000CBC3E = {
 			isa = PBXGroup;
 			children = (
+				11B949872D12CCDB00187D83 /* Localizable.xcstrings */,
 				8C1AD1A42D094569000CBC3E /* Raqeeb */,
 				8C1AD1BD2D0945F3000CBC3E /* Raqeeb Watch App */,
 				8C94956B2D0997EA0031D2CA /* Frameworks */,
@@ -209,6 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11B949882D12CCDB00187D83 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

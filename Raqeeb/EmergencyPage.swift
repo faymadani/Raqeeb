@@ -20,7 +20,7 @@ struct EmergencyPage: View {
                         .frame(width: 200, height: 200)
                         .offset(y: 150)
 
-                    Text("بصفتك جهة اتصال للطوارئ، ستتلقى تنبيهات إنذار عندما يتعرض الشخص الذي تعتني به لنوبه صرع. قد تكون التنبيهات عبارة عن إشعارا مباشرا")
+                    Text("As an emergency contact, you will receive alert notifications when the person you are caring for experiences a seizure. The alerts may be direct notifications.")
                         .foregroundColor(.baigee)
                         .font(.system(size: 20))
                         .multilineTextAlignment(.center)
@@ -30,10 +30,10 @@ struct EmergencyPage: View {
                     Spacer()
 
                     // NavigationLink to page4 when "متابعة" is clicked
-                    NavigationLink(destination: page4()) {
+                    NavigationLink(destination: NotificationPage()) {
                         ZStack {
                             Image("strt")
-                            Text("متابعة")
+                            Text("continue")
                                 .foregroundColor(.bg)
                                 .font(.system(size: 20))
                                 .fontWeight(.bold)
