@@ -1,8 +1,8 @@
 //
-//  RaqeebApp.swift
-//  Raqeeb
+//  ContentViewApp.swift
+//  ContentView
 //
-//  Created by Raghad on 11/12/2024.
+//  Created by Fay Turad Madani on 17/06/1446 AH.
 //
 
 import SwiftUI
@@ -12,8 +12,13 @@ import SwiftData
 struct ContentViewApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack{
+                
+                ContentView()
+                    .navigationBarBackButtonHidden(true)
+            }
                 .modelContainer(for: Nuba.self)  // Ensure Nuba is part of the container
         }
     }
 }
+

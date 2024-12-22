@@ -46,6 +46,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		65DB32152D140A2C0017323D /* Exceptions for "Raqeeb Watch App" folder in "Raqeeb Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Raqeeb-Watch-App-Info.plist",
+			);
+			target = 8C1AD1BB2D0945F3000CBC3E /* Raqeeb Watch App */;
+		};
 		8C1AD1B22D09456A000CBC3E /* Exceptions for "Raqeeb" folder in "Raqeeb" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -66,6 +73,9 @@
 		};
 		8C1AD1BD2D0945F3000CBC3E /* Raqeeb Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				65DB32152D140A2C0017323D /* Exceptions for "Raqeeb Watch App" folder in "Raqeeb Watch App" target */,
+			);
 			path = "Raqeeb Watch App";
 			sourceTree = "<group>";
 		};
@@ -260,10 +270,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Raqeeb/Preview Content\"";
-				DEVELOPMENT_TEAM = Z44K6B6BA2;
+				DEVELOPMENT_TEAM = W6BFG79PP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Raqeeb/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Raqeeb - Epilepsy Monitor";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -273,12 +285,16 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Raghad.Raqeeb;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Fay.Raqeeb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -291,10 +307,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Raqeeb/Preview Content\"";
-				DEVELOPMENT_TEAM = Z44K6B6BA2;
+				DEVELOPMENT_TEAM = W6BFG79PP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Raqeeb/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Raqeeb - Epilepsy Monitor";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,12 +322,16 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Raghad.Raqeeb;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Fay.Raqeeb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -440,18 +462,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Raqeeb Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = Z44K6B6BA2;
+				DEVELOPMENT_TEAM = W6BFG79PP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Raqeeb;
+				INFOPLIST_FILE = "Raqeeb-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Raqeeb - Espliepsy Monitor";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.Raghad.Raqeeb;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.Fay.Raqeeb.RaqeebWatchOs;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Raghad.Raqeeb.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Fay.Raqeeb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -470,18 +493,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Raqeeb Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = Z44K6B6BA2;
+				DEVELOPMENT_TEAM = W6BFG79PP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Raqeeb;
+				INFOPLIST_FILE = "Raqeeb-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Raqeeb - Espliepsy Monitor";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.Raghad.Raqeeb;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.Fay.Raqeeb.RaqeebWatchOs;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Raghad.Raqeeb.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Fay.Raqeeb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;

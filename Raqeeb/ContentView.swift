@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Raqeeb
-//
-//  Created by Raghad on 11/12/2024.
-//
-
 import SwiftUI
 import SwiftData
 
@@ -18,24 +11,26 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color.B_1
+                Color.pur
                     .ignoresSafeArea()
 
                 VStack(spacing: 20) {
                     Spacer().frame(height: 50)
-                    VStack(alignment: .leading, spacing: 8) {
+                    VStack(alignment: .trailing, spacing: 8) {
                         Text("أهلاً محمد")
                             .font(.title)
                             .bold()
                             .foregroundColor(.white)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
                         Text("كيف حال صحتك اليوم؟")
                             .foregroundColor(.gray)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
                     }
-                    .padding(.top, 40)
+                    .padding(.top, 10)
                     .padding(.horizontal)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                   // .frame(maxWidth: .infinity, alignment: .trailing)
 
-                    Spacer().frame(height: 20)
+                    Spacer().frame(height: 10)
 
 //                    VStack(alignment: .leading, spacing: 10) {
 //                        Text("النوبات")
@@ -191,7 +186,7 @@ struct NubaInputSheet: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section(header: Text("أدخل معلومات النوبة").frame(maxWidth: .infinity, alignment: .leading)) {  // Align header to the left
+                Section(header: Text("أدخل معلومات النوبة").frame(maxWidth: .infinity, alignment: .trailing)) {  // Align header to the left
                     // نوع النوبة
                     TextField("أدخل نوع النوبة", text: $nubaType)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -228,3 +223,4 @@ struct NubaInputSheet: View {
         }
     }
 }
+
