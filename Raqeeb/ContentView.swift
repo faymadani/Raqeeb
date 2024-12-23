@@ -8,7 +8,7 @@ struct ContentView: View {
     @State private var nubaDuration: String = ""
     @State private var nubaDate: String = ""
     
-//1
+
     var body: some View {
         
         NavigationView {
@@ -225,4 +225,5 @@ struct NubaInputSheet: View {
         }
     }
 }
+
 
