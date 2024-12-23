@@ -1,11 +1,3 @@
-//
-//  Reports.swift
-//  Raqeeb
-//
-//  Created by Fay Turad Madani on 17/06/1446 AH.
-//
-
-import Foundation
 import SwiftUI
 import SwiftData
 
@@ -14,8 +6,10 @@ struct Reports: View {
     @Query private var nubaItems: [Nuba]  // Fetch existing nuba items from the model
     @State private var showAddSheet = false // to control sheet display
     @State private var type = ""
-    @State private var duration = ""
-    @State private var date = ""
+    @State private var startTime = Date() // وقت البداية
+    @State private var endTime = Date() // وقت النهاية
+    @State private var date = Date() // تاريخ النوبة
+    @State private var currentPage: String = "Reports" // Default to Reports
 
     var body: some View {
         NavigationView {
@@ -42,18 +36,26 @@ struct Reports: View {
                 if nubaItems.isEmpty {
                     Spacer()
                     Text("لا توجد بيانات")
-                        .foregroundColor(.gray)
+                        .foregroundColor(.white)
                         .font(.headline)
                     Spacer()
                 } else {
-                    ScrollView {
-                        VStack(spacing: 15) {
-                            ForEach(nubaItems) { nuba in
-                                NubaBox(nuba: nuba)
-                            }
-                        }
-                        .padding(.horizontal)
-                    }
+                    List {
+                        ForEach(nubaItems) { nuba in
+                            NubaBox(nuba: nuba)
+                                .swipeActions {
+                                    Button(role: .destructive) {
+                                        deleteNuba(nuba)
+                                    } label: {
+                                        Label("حذف", systemImage: "trash")
+                                    }
+                                   // .tint(Color("pur")) // لون السحب
+                                }
+                        }.listRowBackground(Color.clear)
+                    }.scrollContentBackground(.hidden)
+//                    .listStyle(PlainListStyle()) // لجعلها تتصرف مثل ScrollView
+//                    .background(Color.clear) // الحفاظ على الخلفية الأصلية
+                       
                 }
 
                 Spacer()
@@ -69,7 +71,6 @@ struct Reports: View {
                     .frame(maxWidth: .infinity)
                     .foregroundColor(.white)
 
-                    // Add a NavigationLink to wrap the "الرئيسية" button
                     NavigationLink(destination: ContentView()) {
                         VStack(spacing: 4) {
                             Image(systemName: "house.fill")
@@ -83,124 +84,136 @@ struct Reports: View {
                     }
                 }
                 .padding()
-                .background(Color.white.opacity(0.1))
+                .background(Color("pur")) // استبدال الخلفية بلون pur
             }
-            .background(Color("pur").edgesIgnoringSafeArea(.all)) // Set background color
+            .background(Color("pur").edgesIgnoringSafeArea(.all)) // استخدام اللون الأصلي
             .sheet(isPresented: $showAddSheet) {
                 AddSeizureSheet(
                     type: $type,
-                    duration: $duration,
+                    startTime: $startTime,
+                    endTime: $endTime,
                     date: $date,
                     onSave: {
-                        let newNuba = Nuba(type: type, duration: duration, date: date)
-                        // Insert new Nuba into the model context
+                        let duration = Calendar.current.dateComponents([.minute], from: startTime, to: endTime).minute ?? 0
+
+                        let timeFormatter = DateFormatter()
+                        timeFormatter.dateFormat = "HH:mm"
+                        
+                        let formattedStartTime = timeFormatter.string(from: startTime)
+                        let formattedEndTime = timeFormatter.string(from: endTime)
+
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd"
+                        let formattedDate = dateFormatter.string(from: date)
+
+                        let newNuba = Nuba(
+                            type: type,
+                            duration: "\(formattedStartTime) - \(formattedEndTime) (\(duration) دقيقة)", // إضافة وقت البداية والنهاية والمدة
+                            date: formattedDate
+                        )
+                        
                         modelContext.insert(newNuba)
                         do {
                             try modelContext.save()
                         } catch {
                             print("Failed to save new Nuba: \(error)")
                         }
-                        // Reset fields and close the add view
                         showAddSheet = false
                         type = ""
-                        duration = ""
-                        date = ""
+                        startTime = Date()
+                        endTime = Date()
+                        date = Date()
                     }
                 )
             }
         }
-        .navigationBarBackButtonHidden(true)  // Hide the back button
+        .navigationBarBackButtonHidden(true)  // إخفاء زر الرجوع
+    }
+
+    private func deleteNuba(_ nuba: Nuba) {
+        modelContext.delete(nuba)
+        do {
+            try modelContext.save()
+        } catch {
+            print("Failed to delete Nuba: \(error)")
+        }
     }
 }
 
-
-#Preview {
-    Reports()
-}
-import SwiftUI
-
 struct AddSeizureSheet: View {
     @Binding var type: String
-    @Binding var duration: String
-    @Binding var date: String
+    @Binding var startTime: Date // وقت البداية
+    @Binding var endTime: Date // وقت النهاية
+    @Binding var date: Date // تاريخ النوبة
     var onSave: () -> Void
 
     var body: some View {
-        ZStack{
-            Color.bg
-                            .ignoresSafeArea()
+        ZStack {
+            Color("lightPur") // استبدال اللون الأبيض بـ pur
+                .ignoresSafeArea()
             VStack(spacing: 20) {
                 Text("إضافة نوبة")
                     .foregroundColor(.white)
                     .font(.title2)
                     .bold()
                     .padding(.top, 20)
-                    
-                
-//                TextField("نوع النوبة", text: $type)
-//                    .padding()
-//                    .background(Color.gray.opacity(0.1))
-//                    .cornerRadius(12)
-//                    .padding(.horizontal)
-                
+
                 TextField("نوع النوبة", text: $type)
                     .padding()
-                    .background(.white)
+                    .foregroundStyle(Color("white")) // خلفية نوع النوبة
                     .cornerRadius(25)
                     .overlay(
                         RoundedRectangle(cornerRadius: 25)
-                            .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+                            .stroke(Color.white.opacity(0.3), lineWidth: 1)
                     )
                     .padding(.horizontal)
-                
-                
-//                TextField("مدة النوبة", text: $duration)
-//                    .padding()
-//                    .background(Color.gray.opacity(0.1))
-//                    .cornerRadius(12)
-//                    .padding(.horizontal)
-                
-                TextField("مدة النوبة", text: $duration)
+
+                DatePicker("وقت البداية", selection: $startTime, displayedComponents: .hourAndMinute)
                     .padding()
-                    .background(Color.white)
+                    .background(Color("pur")) // خلفية وقت البداية
                     .cornerRadius(25)
                     .overlay(
                         RoundedRectangle(cornerRadius: 25)
-                            .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+                            .stroke(Color.white.opacity(0.3), lineWidth: 1)
                     )
                     .padding(.horizontal)
-                
-//                TextField("تاريخ حصول النوبة", text: $date)
-//                    .padding()
-//                    .background(Color.gray.opacity(0.1))
-//                    .cornerRadius(12)
-//                    .padding(.horizontal)
-                
-                TextField("تاريخ حصول النوبة", text: $date)
+
+                DatePicker("وقت النهاية", selection: $endTime, displayedComponents: .hourAndMinute)
                     .padding()
-                    .background(Color.white)
+                    .background(Color("pur")) // خلفية وقت النهاية
                     .cornerRadius(25)
                     .overlay(
                         RoundedRectangle(cornerRadius: 25)
-                            .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+                            .stroke(Color.white.opacity(0.3), lineWidth: 1)
                     )
                     .padding(.horizontal)
-                
+
+                DatePicker("تاريخ النوبة", selection: $date, displayedComponents: .date)
+                    .padding()
+                    .background(Color("pur")) // خلفية تاريخ النوبة
+                    .cornerRadius(25)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 25)
+                            .stroke(Color.white.opacity(0.3), lineWidth: 1)
+                    )
+                    .padding(.horizontal)
+
                 Button(action: {
                     onSave()
                 }) {
                     Text("أضف")
                         .frame(width: 200)
                         .padding()
-                        .background(.white)
-                        .foregroundColor(.B_1)
+                        .background(Color("pur"))
+                        .foregroundColor(.white)
                         .cornerRadius(25)
                         .padding(.horizontal)
                 }
-                
+
                 Spacer()
             }
         }
-        
     }
 }
+
+

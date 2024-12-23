@@ -7,8 +7,10 @@ struct ContentView: View {
     @State private var nubaType: String = ""
     @State private var nubaDuration: String = ""
     @State private var nubaDate: String = ""
+    
 
     var body: some View {
+        
         NavigationView {
             ZStack {
                 Color.pur
@@ -167,7 +169,7 @@ struct NubaBox: View {
         }
         .frame(width: 330, height: 100) // Set the width and height of the overall box
         .padding() // Padding around the content inside the box
-        .background(Color.black.opacity(0.3)) // Background with transparency
+        .background(Color("lightPur")) // Background with transparency
         .cornerRadius(25) // Fully rounded corners
         .padding(.horizontal) // Add padding around the box itself for spacing
         .environment(\.layoutDirection, .rightToLeft) // Set RTL layout direction globally
